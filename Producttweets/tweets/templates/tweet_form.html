@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %} Siddhant Tweets {% endblock %}
+{% block content %}
+
+<h1 class="text-center m-4">Hello to the tweets</h1>
+
+<h2>
+  {% if form.instance.pk %} Edit Tweet {% else %} Create Tweet {% endif %}
+</h2>
+
+<form method="post" enctype="multipart/form-data" class="form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-warning" type="submit">Submit</button>
+</form>
+
+<a href="{% url 'list_tweets' %}">Back to tweet list</a>
+
+{% endblock %}
